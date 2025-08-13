@@ -1,0 +1,58 @@
+.header-container {
+  position: sticky;
+  box-sizing: border-box;
+  top: 0;
+  width: 100%;
+  background: #333;
+  border-bottom: solid 2px;
+  border-image: linear-gradient(90deg, orange, purple) 1;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+@keyframes identifier {
+  
+}
+
+.header-container:hover {
+  border-image: linear-gradient(
+      90deg,
+      rgba(87, 199, 133, 1) 0%,
+      rgba(42, 123, 155, 1) 50%,
+      rgba(237, 221, 83, 1) 100%
+    )
+    1;
+}
+
+.header {
+  padding: 1em;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1400px;
+}
+
+.header-element {
+  display: inline-block;
+  padding: 1em;
+  background: #333;
+  cursor: pointer;
+  
+  border-radius: 0.5em;
+  transition: background 200ms;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  -webkit-transition: background 200ms;
+  -moz-transition: background 200ms;
+  -ms-transition: background 200ms;
+  -o-transition: background 200ms;
+}
+
+.header-element:hover {
+  background: #444;
+}
