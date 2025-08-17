@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./CustomButton.module.css";
 
-export default function CustomButton({ children, ...props }) {
+export default function CustomButton({
+  children,
+  type = "button",
+  className = "",
+}) {
   return (
-    <button {...props} className={styles.customButton}>
+    <button type={type} className={styles.customButton + className}>
       {children}
     </button>
   );

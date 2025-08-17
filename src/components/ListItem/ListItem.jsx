@@ -1,28 +1,23 @@
-import React from "react";
 import style from "./ListItem.module.css";
-import CustomButton from "../../UI/CustomButton/CustomButton.jsx";
-import CustomInput from "../../UI/CustomInput/CustomInput.jsx";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsFilter } from "react-icons/bs";
 
-export default function ListItem(props) {
-  const [taskDone, setTaskDone] = React.useState(false);
-
+export default function ListItem({ id, value, done, onToggle, onDelete }) {
   return (
-    <div className={`${style.listItem} ${taskDone ? style.completed : ""}`}>
-      <BsFilter className={style.filterButton}/>
+    <li className={`${style.listItem} ${done ? style.completed : ""}`}>
+      <BsFilter className={style.filterButton} />
       <input
         className={style.checkbox}
         type="checkbox"
-        onChange={() => {
-          setTaskDone(!taskDone);
-        }}
+        checked={done}
+        onChange={() => onToggle(id)}
       />
-      <textarea className={style.text}>{props.value}</textarea>
+      <textarea className={style.text}>{value}</textarea>
       <AiOutlineClose
+        aria-label="Удалить задачу"
         className={style.deleteButton}
-        onClick={() => props.onDelete(props.id)}
+        onClick={() => onDelete(id)}
       />
-    </div>
+    </li>
   );
 }

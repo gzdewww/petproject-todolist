@@ -18,6 +18,7 @@
   -o-border-radius: 0.5rem;
 }
 
-.customInputError {
-  border: 1px solid var(--accent-color);
+.error {
+  border: 1px solid var(--error-color);
+  color: var(--error-color);
 }

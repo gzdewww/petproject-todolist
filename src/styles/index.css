@@ -5,6 +5,7 @@
   --accent-bg-color: #282828;
   --main-text-color: #eee;
   --accent-color: #6bf;
+  --error-color: #f66;
   --main-box-shadow: 0 0 1rem #0005;
   --main-glow: 0 0 0.2rem var(--accent-color);
   --transition: 0.2s ease-in-out;

@@ -1,32 +1,40 @@
+import { useState } from "react";
 import SideBar from "./components/SideBar/SideBar.jsx";
 import List from "./components/List/List.jsx";
-import CustomInput from "./UI/CustomInput/CustomInput.jsx";
-import CustomButton from "./UI/CustomButton/CustomButton.jsx";
-import Modal from "./components/Modal/Modal.jsx";
 
 function App() {
+  const [tasks, setTasks] = useState([
+    { id: 1, value: "Помыть ножки", done: false },
+    { id: 2, value: "Погладить нюшеньку", done: true },
+  ]);
+
+  const addTask = (text) => {
+    setTasks([...tasks, { id: Date.now(), value: text, done: false }]);
+  };
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const toggleTask = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, done: !task.done } : task
+      )
+    );
+  };
+
   return (
     <>
-      {/* <Modal>
-        <h1>Form name</h1>
-        <CustomInput type="text" placeholder="Введите текст" />
-        <CustomInput type="text" placeholder="Введите текст" />
-        <CustomInput type="text" placeholder="Введите текст" />
-        <CustomInput type="text" placeholder="Введите текст" />
-        <CustomInput type="text" placeholder="Введите текст" />
-        <CustomButton>Войти</CustomButton>
-        <CustomButton>Зарегистрироваться</CustomButton>
-      </Modal> */}
       <SideBar />
-      <div className="content">
+      <main className="content">
         <List
-          itemArray={[
-            "Помыть ножки",
-            "Погладить нюшеньку",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam tempora libero ducimus qui aspernatur facilis nesciunt, vitae obcaecati autem repudiandae illo quaerat maiores ab error ipsam, inventore in expedita quisquam?",
-          ]}
+          items={tasks}
+          onAdd={addTask}
+          onDelete={deleteTask}
+          onToggle={toggleTask}
         />
-      </div>
+      </main>
     </>
   );
 }
