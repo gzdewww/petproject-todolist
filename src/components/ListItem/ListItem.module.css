@@ -1,90 +1,112 @@
 .listItem {
   display: flex;
+  gap: 1rem;
   width: 100%;
+  box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
-  background: #333;
+  background: var(--accent-bg-color);
   border-radius: 8px;
   padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
   font-size: 1rem;
-  color: #ddd;
-  transition: all 0.2s;
-
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
+  transition: var(--transition);
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
 }
 
-.listItem:hover {
-  box-shadow: 0 0 1em #555;
-}
-
-.listItem::after {
+/* .listItem::after {
   content: "";
   display: block;
   width: 100px;
   width: 100px;
-  color: #fff;
-}
+  background: #ddd;
+  z-index: 100;
+} */
 
 .checkbox {
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  position: relative;
   appearance: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 0.5em;
-  border: 2px solid plum;
-  transition: all 0.2s;
+  width: 2rem;
+  height: 2rem;
+  border: solid var(--accent-color);
+  transition: var(--transition);
+  border-radius: 25%;
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
+  -webkit-border-radius: 25%;
+  -moz-border-radius: 25%;
+  -ms-border-radius: 25%;
+  -o-border-radius: 25%;
+}
 
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
+.checkbox:hover {
+  filter: drop-shadow(var(--main-glow));
+  -webkit-filter: drop-shadow(var(--main-glow));
 }
 
 .checkbox::after {
-  text-align: center;
   content: "";
-  display: block;
-  transition: all 0.2s;
-  border-radius: 0.3em;
-
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -webkit-border-radius: 0.3em;
-  -moz-border-radius: 0.3em;
-  -ms-border-radius: 0.3em;
-  -o-border-radius: 0.3em;
+  display: inline-block;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  background: var(--accent-color);
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  transition: var(--transition);
+  transform: scale(0);
+  border-radius: 25%;
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  -webkit-border-radius: 25%;
+  -moz-border-radius: 25%;
+  -ms-border-radius: 25%;
+  -o-border-radius: 25%;
 }
 
 .checkbox:checked::after {
-  width: 0.9em;
-  height: 0.9em;
-  background-color: plum;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
 }
 
 .text {
-  text-decoration: none;
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
+  color: inherit;
+  background: none;
+  flex: 1;
+  border: none;
+  resize: vertical;
+  cursor: text;
+  position: relative;
+  transition: var(--transition);
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
 }
 
 .completed .text {
-  color: #aaa;
+  color: #888;
   text-decoration: line-through;
 }
 
@@ -93,26 +115,28 @@
   gap: 0.5rem;
 }
 
+.filterButton,
 .deleteButton {
-  background: none;
-  border: none;
-  color: plum;
-  cursor: pointer;
-  padding: 0.5em;
-  border-radius: 0.5em;
-  transition: background 0.2s;
-
-  -webkit-transition: background 0.2s;
-  -moz-transition: background 0.2s;
-  -ms-transition: background 0.2s;
-  -o-transition: background 0.2s;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
+  min-width: 2rem;
+  color: var(--accent-color);
+  font-size: 2rem;
+  transition: var(--transition);
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
 }
 
+.deleteButton {
+  cursor: pointer;
+}
+
+.filterButton {
+  cursor: grab;
+}
+
+.filterButton:hover,
 .deleteButton:hover {
-  color: #ddd;
-  background: #dda0dd94;
+  filter: drop-shadow(var(--main-glow));
+  -webkit-filter: drop-shadow(var(--main-glow));
 }

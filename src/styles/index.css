@@ -1,12 +1,19 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  box-sizing: border-box;
 
-  color-scheme: light dark;
-  color: #ddd;
-  background-color: #242424;
+  --main-bg-color: #333;
+  --accent-bg-color: #282828;
+  --main-text-color: #eee;
+  --accent-color: #6bf;
+  --main-box-shadow: 0 0 1rem #0005;
+  --main-glow: 0 0 0.2rem var(--accent-color);
+  --transition: 0.2s ease-in-out;
+  --tint-color: #0005;
+  --sidebar-width: 20rem;
+
+  color-scheme: dark;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,30 +21,34 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.content{
-  margin: auto;
+#root {
+  width: 100%;
+  background-color: var(--main-bg-color);
+}
+
+.content {
+  padding-left: var(--sidebar-width);
+  margin: 1rem;
+  box-sizing: border-box;
+
   display: flex;
-  align-items: center;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex: 1;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+@media (max-width: 719px) {
+  .content {
+    padding-left: 0;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* Extra extra large (xxl) – устройства от 1400px */
-@media (min-width: 1400px) {
-  .content{
-    max-width: 1400px;
+    --main-bg-color: #eee;
+    --accent-bg-color: #ddd;
+    --main-text-color: #222;
+    --accent-color: #17b;
   }
 }

@@ -1,0 +1,32 @@
+.sideBarItem {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color var(--transition);
+
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  -webkit-transition: background-color var(--transition);
+  -moz-transition: background-color var(--transition);
+  -ms-transition: background-color var(--transition);
+  -o-transition: background-color var(--transition);
+}
+
+.sideBarItem p {
+  margin: 0;
+}
+
+.sideBarItem:hover {
+  background-color: var(--main-bg-color);
+}
+
+.sideBarItem svg,
+.sideBarItem img {
+  height: auto;
+  width: 1.5rem;
+}

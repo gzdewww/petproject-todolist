@@ -1,0 +1,15 @@
+.customButton {
+  font-weight:600;
+  color: inherit;
+  background-color: var(--main-bg-color);
+  border: none;
+  padding: 1rem;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.5rem;
+
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}

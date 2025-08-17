@@ -1,22 +1,32 @@
-import Header from "./components/Header/Header.jsx";
-import ListItem from "./components/ListItem/ListItem.jsx";
+import SideBar from "./components/SideBar/SideBar.jsx";
 import List from "./components/List/List.jsx";
-import { useState } from "react";
+import CustomInput from "./UI/CustomInput/CustomInput.jsx";
+import CustomButton from "./UI/CustomButton/CustomButton.jsx";
+import Modal from "./components/Modal/Modal.jsx";
 
 function App() {
-  const [listItemArray, setListItemArray] = useState(
-    new Array(10).fill("Текст задачи")
-  );
-
-  const addNewItem = () => {
-    setListItemArray([...listItemArray, "Новая задача"]);
-  };
-
   return (
     <>
-      <Header />
-      <button onClick={addNewItem}>add</button>
-      <List listItemArray={listItemArray}/>
+      {/* <Modal>
+        <h1>Form name</h1>
+        <CustomInput type="text" placeholder="Введите текст" />
+        <CustomInput type="text" placeholder="Введите текст" />
+        <CustomInput type="text" placeholder="Введите текст" />
+        <CustomInput type="text" placeholder="Введите текст" />
+        <CustomInput type="text" placeholder="Введите текст" />
+        <CustomButton>Войти</CustomButton>
+        <CustomButton>Зарегистрироваться</CustomButton>
+      </Modal> */}
+      <SideBar />
+      <div className="content">
+        <List
+          itemArray={[
+            "Помыть ножки",
+            "Погладить нюшеньку",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam tempora libero ducimus qui aspernatur facilis nesciunt, vitae obcaecati autem repudiandae illo quaerat maiores ab error ipsam, inventore in expedita quisquam?",
+          ]}
+        />
+      </div>
     </>
   );
 }

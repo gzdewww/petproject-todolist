@@ -1,0 +1,10 @@
+.customForm {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--accent-bg-color);
+}
