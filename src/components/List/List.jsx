@@ -42,11 +42,10 @@ export default function List({ items, onAdd, onDelete, onToggle }) {
           return (
             <ListItem
               key={task.id}
-              id={task.id}
               value={task.value}
               done={task.done}
-              onToggle={onToggle}
-              onDelete={onDelete}
+              onToggle={() => onToggle(task.id)}
+              onDelete={() => onDelete(task.id)}
             />
           );
         })}

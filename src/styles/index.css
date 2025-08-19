@@ -39,6 +39,64 @@
   justify-content: flex-start;
 }
 
+.empty-lists {
+  --rad: 3em;
+  margin-top: 500px;
+  position: relative;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.anim {
+  position: relative;
+  left: var(--rad);
+  display: inline-block;
+  animation: orbit 10s ease infinite;
+  -webkit-animation: orbit 5s ease infinite;
+}
+
+/* @keyframes wobble {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateY(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateY(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateY(-15px) rotate(-3.6deg);
+    filter: drop-shadow(0 0 1rem #ee8130);
+    -webkit-filter: drop-shadow(0 0 1rem #ee8130);
+}
+  60% {
+    transform: translateY(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(-1.2deg);
+  }
+} */
+
+@keyframes orbit {
+  from, 25% {
+    transform: rotate(0deg) translate(calc(var(--rad) * -1));
+    -webkit-transform: rotate(0deg) translate(calc(var(--rad) * -1));
+    -moz-transform: rotate(0deg) translate(calc(var(--rad) * -1));
+    -ms-transform: rotate(0deg) translate(calc(var(--rad) * -1));
+    -o-transform: rotate(0deg) translate(calc(var(--rad) * -1));
+  }
+  to, 75% {
+    transform: rotate(360deg) translate(calc(var(--rad) * -1));
+    -webkit-transform: rotate(360deg) translate(calc(var(--rad) * -1));
+    -moz-transform: rotate(360deg) translate(calc(var(--rad) * -1));
+    -ms-transform: rotate(360deg) translate(calc(var(--rad) * -1));
+    -o-transform: rotate(360deg) translate(calc(var(--rad) * -1));
+  }
+}
+
 @media (max-width: 719px) {
   .content {
     padding-left: 0;
