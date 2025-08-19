@@ -20,7 +20,7 @@
 }
 
 .item:hover {
-  background-color: var(--main-bg-color);
+  background-color: var(--bg-main);
 }
 
 .itemTitle {
@@ -41,8 +41,8 @@
 }
 
 .delete:hover {
-  filter: drop-shadow(var(--main-glow));
-  -webkit-filter: drop-shadow(var(--main-glow));
+  filter: drop-shadow(var(--glow-main));
+  -webkit-filter: drop-shadow(var(--glow-main));
 }
 
 .item:hover .delete {

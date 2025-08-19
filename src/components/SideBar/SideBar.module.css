@@ -2,9 +2,9 @@
   position: fixed;
   top: 0;
   height: 100vh;
-  background: var(--accent-bg-color);
+  background: var(--bg-accent);
   width: var(--sidebar-width);
-  box-shadow: var(--main-box-shadow);
+  box-shadow: var(--box-shadow-main);
   overflow: hidden;
 }
 
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background: var(--main-bg-color);
+  background: var(--bg-main);
 }
 
 .iconHeader {
@@ -26,8 +26,8 @@
 }
 
 .iconHeader:hover {
-  filter: drop-shadow(var(--main-glow));
-  -webkit-filter: drop-shadow(var(--main-glow));
+  filter: drop-shadow(var(--glow-main));
+  -webkit-filter: drop-shadow(var(--glow-main));
 }
 
 .sidebarContent {

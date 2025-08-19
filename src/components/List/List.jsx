@@ -6,7 +6,7 @@ import CustomForm from "../../UI/CustomForm/CustomForm.jsx";
 import CustomInput from "../../UI/CustomInput/CustomInput.jsx";
 import { BsPlusSquareFill } from "react-icons/bs";
 
-export default function List({ items, onAdd, onDelete, onToggle }) {
+export default function List({ items, onAdd, onDelete, onToggle, onChange }) {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
 
@@ -46,6 +46,7 @@ export default function List({ items, onAdd, onDelete, onToggle }) {
               done={task.done}
               onToggle={() => onToggle(task.id)}
               onDelete={() => onDelete(task.id)}
+              onChange={(text) => onChange(task.id, text)}
             />
           );
         })}

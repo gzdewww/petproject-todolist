@@ -19,10 +19,6 @@ export default function useTasks() {
     localStorage.setItem("activeList", JSON.stringify(activeList));
   }, [activeList]);
 
-  // const [tasks, setTasks] = useState(
-  //   lists.find((list) => list.id === activeList)?.todos || []
-  // );
-
   const addList = (title) => {
     const newList = {
       id: nanoid(16),
@@ -33,12 +29,20 @@ export default function useTasks() {
     setActiveList(newList.id);
   };
 
-  const removeList = (id) => {
-    const updatedLists = lists.filter((list) => list.id !== id);
+  const removeList = (listId) => {
+    const updatedLists = lists.filter((list) => list.id !== listId);
     setLists(updatedLists);
-    if (activeList === id) {
+    if (activeList === listId) {
       setActiveList(updatedLists.length > 0 ? updatedLists[0].id : "");
     }
+  };
+
+  const editList = (listId, newTitle) => {
+    setLists(
+      lists.map((list) =>
+        list.id === listId ? { ...list, title: newTitle } : list
+      )
+    );
   };
 
   const addTask = (listId, text) => {
@@ -75,6 +79,21 @@ export default function useTasks() {
     );
   };
 
+  const editTask = (listId, taskId, newText) => {
+    setLists(
+      lists.map((list) =>
+        list.id === listId
+          ? {
+              ...list,
+              todos: list.todos.map((task) =>
+                task.id === taskId ? { ...task, value: newText } : task
+              ),
+            }
+          : list
+      )
+    );
+  };
+
   //
   return {
     lists,
@@ -82,8 +101,10 @@ export default function useTasks() {
     setActiveList,
     addList,
     removeList,
+    editList,
     addTask,
     toggleTask,
     removeTask,
+    editTask,
   };
 }

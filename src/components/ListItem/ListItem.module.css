@@ -5,7 +5,6 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
-  background: var(--accent-bg-color);
   border-radius: 8px;
   padding: 1rem 1.5rem;
   font-size: 1rem;
@@ -19,15 +18,6 @@
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
 }
-
-/* .listItem::after {
-  content: "";
-  display: block;
-  width: 100px;
-  width: 100px;
-  background: #ddd;
-  z-index: 100;
-} */
 
 .checkbox {
   cursor: pointer;
@@ -50,8 +40,8 @@
 }
 
 .checkbox:hover {
-  filter: drop-shadow(var(--main-glow));
-  -webkit-filter: drop-shadow(var(--main-glow));
+  filter: drop-shadow(var(--glow-main));
+  -webkit-filter: drop-shadow(var(--glow-main));
 }
 
 .checkbox::after {
@@ -91,18 +81,12 @@
 }
 
 .text {
-  color: inherit;
-  background: none;
-  flex: 1;
-  border: none;
-  resize: vertical;
-  cursor: text;
   position: relative;
-  transition: var(--transition);
-  -webkit-transition: var(--transition);
-  -moz-transition: var(--transition);
-  -ms-transition: var(--transition);
-  -o-transition: var(--transition);
+  transition: color var(--transition);
+  -webkit-transition: color var(--transition);
+  -moz-transition: color var(--transition);
+  -ms-transition: color var(--transition);
+  -o-transition: color var(--transition);
 }
 
 .completed .text {
@@ -127,12 +111,7 @@
   -o-transition: var(--transition);
 }
 
-.listItem:hover .deleteButton {
-  opacity: 1;
-}
-
 .deleteButton {
-  opacity: 0;
   cursor: pointer;
 }
 
@@ -142,6 +121,16 @@
 
 .filterButton:hover,
 .deleteButton:hover {
-  filter: drop-shadow(var(--main-glow));
-  -webkit-filter: drop-shadow(var(--main-glow));
+  filter: drop-shadow(var(--glow-main));
+  -webkit-filter: drop-shadow(var(--glow-main));
+}
+
+@media (min-width: 720px) {
+  .listItem:hover .deleteButton {
+    opacity: 1;
+  }
+
+  .deleteButton {
+    opacity: 0;
+  }
 }

@@ -18,6 +18,7 @@ export default function SideBar({
   setActiveList,
   addList,
   removeList,
+  editList,
 }) {
   return (
     <>
@@ -52,13 +53,16 @@ export default function SideBar({
                   setActiveList(list.id);
                   console.log(activeList);
                 }}
+                onChange={(newTitle) => {
+                  editList(list.id, newTitle);
+                }}
               />
             ))}
           </div>
           <SideBarItem
             icon={<BsPlusSquare className={styles.icon} />}
             value={"Добавить"}
-            onClick={() => addList("новый")}
+            onClick={() => addList("Новый список")}
           />
         </div>
       </aside>

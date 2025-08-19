@@ -9,9 +9,11 @@ function App() {
     setActiveList,
     addList,
     removeList,
+    editList,
     addTask,
     removeTask,
     toggleTask,
+    editTask,
   } = useTasks();
   return (
     <>
@@ -21,6 +23,7 @@ function App() {
         setActiveList={setActiveList}
         addList={addList}
         removeList={removeList}
+        editList={editList}
       />
       <main className="content">
         {lists.length > 0 ? (
@@ -29,9 +32,14 @@ function App() {
             onAdd={(text) => addTask(activeList, text)}
             onDelete={(taskId) => removeTask(activeList, taskId)}
             onToggle={(taskId) => toggleTask(activeList, taskId)}
+            onChange={(taskId, newText) =>
+              editTask(activeList, taskId, newText)
+            }
           />
         ) : (
-          <h1 className='empty-lists'><span className="anim">🚀</span> ToDoList</h1>
+          <h1 className="empty-lists">
+            <span className="anim">🚀</span> ToDoList
+          </h1>
         )}
       </main>
     </>

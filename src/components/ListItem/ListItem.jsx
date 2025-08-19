@@ -1,8 +1,15 @@
 import style from "./ListItem.module.css";
 import { BsFilter, BsXLg } from "react-icons/bs";
+import CustomInput from "../../UI/CustomInput/CustomInput";
 
-export default function ListItem({ value, done, onToggle, onDelete }) {
-  console.log(`rendered ${value}`);
+export default function ListItem({
+  value,
+  done,
+  onToggle,
+  onDelete,
+  onChange,
+}) {
+  // console.log(`rendered ${value}`);
   return (
     <li className={`${style.listItem} ${done ? style.completed : ""}`}>
       <BsFilter className={style.filterButton} />
@@ -12,7 +19,14 @@ export default function ListItem({ value, done, onToggle, onDelete }) {
         checked={done}
         onChange={onToggle}
       />
-      <p className={style.text}>{value}</p>
+      <CustomInput
+        className={style.text}
+        value={value}
+        onChange={(event) => {
+          console.log(event.target.value);
+          onChange(event.target.value);
+        }}
+      ></CustomInput>
       <BsXLg
         aria-label="Удалить задачу"
         className={style.deleteButton}
