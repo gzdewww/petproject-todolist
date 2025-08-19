@@ -3,6 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BsFilter } from "react-icons/bs";
 
 export default function ListItem({ id, value, done, onToggle, onDelete }) {
+  console.log(`rendered ${value} with id ${id}`);
   return (
     <li className={`${style.listItem} ${done ? style.completed : ""}`}>
       <BsFilter className={style.filterButton} />
@@ -12,7 +13,11 @@ export default function ListItem({ id, value, done, onToggle, onDelete }) {
         checked={done}
         onChange={() => onToggle(id)}
       />
-      <textarea className={style.text}>{value}</textarea>
+      <textarea
+        className={style.text}
+        value={value}
+        onChange={() => {}}
+      ></textarea>
       <AiOutlineClose
         aria-label="Удалить задачу"
         className={style.deleteButton}

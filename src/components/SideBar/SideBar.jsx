@@ -6,10 +6,11 @@ import {
   BsSearch,
   BsCalendar2Date,
   BsCalendarMonth,
+  BsListTask,
 } from "react-icons/bs";
 import SideBarItem from "../SideBarItem/SideBarItem";
 
-export default function SideBar() {
+export default function SideBar({ lists }) {
   return (
     <>
       <aside className={styles.sidebar}>
@@ -18,18 +19,19 @@ export default function SideBar() {
           <BsLayoutSidebar className={styles.toggleSidebar} />
         </div>
         <div className={styles.sidebarContent}>
-          <SideBarItem>
-            <BsSearch />
-            <p>Поиск</p>
+          <SideBarItem value={"Сегодня"}>
+            <BsCalendar2Date className={styles.icon} />
           </SideBarItem>
-          <SideBarItem>
-            <BsCalendar2Date />
-            <p>Сегодня</p>
+          <SideBarItem value={"Ближайшие"}>
+            <BsCalendarMonth className={styles.icon} />
           </SideBarItem>
-          <SideBarItem>
-            <BsCalendarMonth />
-            <p>Предстоящее</p>
-          </SideBarItem>
+          {lists ? (
+            <SideBarItem value={"Мои списки"} lists={lists}>
+              <BsListTask className={styles.icon} />
+            </SideBarItem>
+          ) : (
+            ""
+          )}
         </div>
       </aside>
     </>

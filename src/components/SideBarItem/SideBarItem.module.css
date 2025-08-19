@@ -1,8 +1,9 @@
-.sideBarItem {
+.header {
   box-sizing: border-box;
   margin: 0;
   padding: 1rem;
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
   transition: background-color var(--transition);
@@ -17,16 +18,18 @@
   -o-transition: background-color var(--transition);
 }
 
-.sideBarItem p {
-  margin: 0;
-}
-
-.sideBarItem:hover {
+.header:hover {
   background-color: var(--main-bg-color);
 }
 
-.sideBarItem svg,
-.sideBarItem img {
-  height: auto;
+.header svg,
+.listIcon {
   width: 1.5rem;
+  height: 1.5rem;
+}
+
+.headerTitle {
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
 }

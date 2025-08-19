@@ -127,7 +127,12 @@
   -o-transition: var(--transition);
 }
 
+.listItem:hover .deleteButton {
+  opacity: 1;
+}
+
 .deleteButton {
+  opacity: 0;
   cursor: pointer;
 }
 
