@@ -1,8 +1,9 @@
-.customForm {
+.form {
   position: relative;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1em;
   width: 100%;
   padding: 1rem;

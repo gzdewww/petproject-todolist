@@ -16,7 +16,7 @@ export default function CustomInput({
       placeholder={error || placeholder}
       aria-invalid={Boolean(error)}
       className={
-        `${styles.customInput} ${error ? styles.error : ""} ` + className
+        `${styles.input} ${error ? styles.error : ""} ` + className
       }
     />
   );

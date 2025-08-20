@@ -1,13 +1,17 @@
-import React from "react";
 import styles from "./CustomButton.module.css";
 
 export default function CustomButton({
   children,
   type = "button",
   className = "",
+  onClick,
 }) {
   return (
-    <button type={type} className={styles.customButton + className}>
+    <button
+      type={type}
+      className={`${styles.button} ${className}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

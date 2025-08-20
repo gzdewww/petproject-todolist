@@ -11,12 +11,12 @@
 .sidebarHeader {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
   background: var(--bg-main);
 }
 
 .iconHeader {
   cursor: pointer;
+  padding: 1rem;
   font-size: 1.5rem;
   transition: filter var(--transition);
   -webkit-transition: filter var(--transition);
@@ -47,12 +47,25 @@
   margin-left: 1rem;
 }
 
-@media (max-width: 719px) {
+@media (max-width: 720px) {
   .sidebar {
     height: auto;
     width: 100%;
     max-width: 100%;
     position: relative;
     padding: 0;
+  }
+  .hidden {
+    display: none;
+  }
+}
+@media (min-width: 720px) {
+  .hidden {
+    --sidebar-width: 3.5rem;
+    /* transform: translateX(-16.5rem);
+    -webkit-transform: translateX(-16.5rem);
+    -moz-transform: translateX(-16.5rem);
+    -ms-transform: translateX(-16.5rem);
+    -o-transform: translateX(-16.5rem); */
   }
 }

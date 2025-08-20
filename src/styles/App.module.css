@@ -1,0 +1,52 @@
+.content {
+  padding-left: var(--sidebar-width);
+  margin: 1rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.emptyLists {
+  --rad: 3em;
+  margin-top: 500px;
+  position: relative;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.anim {
+  position: relative;
+  left: var(--rad);
+  display: inline-block;
+  animation: orbit 10s ease infinite;
+  -webkit-animation: orbit 3s ease-in-out infinite;
+}
+
+@keyframes orbit {
+  from,
+  25% {
+    transform: rotate(0deg) translate(calc(var(--rad) * -1));
+    -webkit-transform: rotate(0deg) translate(calc(var(--rad) * -1));
+    -moz-transform: rotate(0deg) translate(calc(var(--rad) * -1));
+    -ms-transform: rotate(0deg) translate(calc(var(--rad) * -1));
+    -o-transform: rotate(0deg) translate(calc(var(--rad) * -1));
+  }
+  to,
+  75% {
+    transform: rotate(360deg) translate(calc(var(--rad) * -1));
+    -webkit-transform: rotate(360deg) translate(calc(var(--rad) * -1));
+    -moz-transform: rotate(360deg) translate(calc(var(--rad) * -1));
+    -ms-transform: rotate(360deg) translate(calc(var(--rad) * -1));
+    -o-transform: rotate(360deg) translate(calc(var(--rad) * -1));
+  }
+}
+
+@media (max-width: 719px) {
+  .content {
+    padding-left: 0;
+  }
+}

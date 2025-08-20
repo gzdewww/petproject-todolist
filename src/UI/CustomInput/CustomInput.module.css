@@ -1,4 +1,4 @@
-.customInput {
+.input {
   font-weight: inherit;
   color: inherit;
 
@@ -15,7 +15,7 @@
   -o-transition: border var(--transition), color var(--transition);
 }
 
-.customInput:hover {
+.input:hover {
   border-bottom: 2px solid var(--bg-accent);
 }
 

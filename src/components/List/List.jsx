@@ -1,41 +1,32 @@
-import React, { useState } from "react";
+import CustomSelect from "../../UI/CustomSelect/CustomSelect.jsx";
+import FormTask from "../FormTask/FormTask.jsx";
 import ListItem from "../ListItem/ListItem.jsx";
 import style from "./List.module.css";
-import CustomButton from "../../UI/CustomButton/CustomButton.jsx";
-import CustomForm from "../../UI/CustomForm/CustomForm.jsx";
-import CustomInput from "../../UI/CustomInput/CustomInput.jsx";
-import { BsPlusSquareFill } from "react-icons/bs";
 
-export default function List({ items, onAdd, onDelete, onToggle, onChange }) {
-  const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState("");
-
-  const handleSubmit = () => {
-    if (!inputValue.trim()) {
-      setError("Поле не должно быть пустым");
-      return;
-    }
-    onAdd(inputValue.trim());
-    setInputValue("");
-    setError("");
-  };
-
+export default function List({
+  items,
+  onAdd,
+  onDelete,
+  onToggle,
+  onChange,
+  filter,
+  setFilter,
+}) {
   return (
     <>
       {/* Form for adding a new task */}
-      <CustomForm onSubmit={handleSubmit}>
-        <CustomInput
-          onChange={(event) => {
-            setInputValue(event.target.value);
-            if (error) setError("");
-          }}
-          placeholder={"Введите задачу..."}
-          value={inputValue}
-          error={error}
-        />
-        <CustomButton type="submit">Добавить</CustomButton>
-      </CustomForm>
-
+      <FormTask onAdd={onAdd} />
+      {/* Filter */}
+      <CustomSelect
+        options={[
+          { value: "all", label: "Все" },
+          { value: "active", label: "Активные" },
+          { value: "completed", label: "Завершённые" },
+        ]}
+        value={filter}
+        placeholder={"Фильтр"}
+        onChange={setFilter}
+      />
       {/* Render each list item */}
       <ul className={style.list}>
         {items.map((task) => {

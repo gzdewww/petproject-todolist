@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./SideBar.module.css";
 import {
   BsLayoutSidebar,
@@ -9,6 +9,7 @@ import {
   BsListTask,
   BsJournalCheck,
   BsPlusSquare,
+  BsList,
 } from "react-icons/bs";
 import SideBarItem from "../SideBarItem/SideBarItem";
 
@@ -20,14 +21,23 @@ export default function SideBar({
   removeList,
   editList,
 }) {
+  const [hidden, setHidden] = useState(true);
+
   return (
     <>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
           <BsPersonCircle className={styles.iconHeader} />
-          <BsLayoutSidebar className={styles.iconHeader} />
+          <BsLayoutSidebar
+            className={styles.iconHeader}
+            onClick={() => setHidden(!hidden)}
+          />
         </div>
-        <div className={styles.sidebarContent}>
+        <div
+          className={
+            styles.sidebarContent + " " + (hidden ? styles.hidden : "")
+          }
+        >
           <SideBarItem
             icon={<BsCalendar2Date className={styles.icon} />}
             value={"Сегодня"}

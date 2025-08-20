@@ -1,10 +1,9 @@
-.customButton {
+.button {
   font-weight:600;
   color: inherit;
   background-color: var(--main-bg-color);
   border: none;
   padding: 1rem;
-  display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
 

@@ -1,0 +1,90 @@
+.container {
+  position: relative;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-accent);
+  padding: 1rem;
+
+  border-radius: 0.5rem;
+  transition: all var(--transition);
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  -webkit-transition: all var(--transition);
+  -moz-transition: all var(--transition);
+  -ms-transition: all var(--transition);
+  -o-transition: all var(--transition);
+}
+
+.button > svg {
+  transition: transform var(--transition);
+  -webkit-transition: transform var(--transition);
+  -moz-transition: transform var(--transition);
+  -ms-transition: transform var(--transition);
+  -o-transition: transform var(--transition);
+}
+
+.selectExpanded {
+  border-radius: 0.5rem 0.5rem 0 0;
+  -webkit-border-radius: 0.5rem 0.5rem 0 0;
+  -moz-border-radius: 0.5rem 0.5rem 0 0;
+  -ms-border-radius: 0.5rem 0.5rem 0 0;
+  -o-border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.selectExpanded > svg {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+.options {
+  width: 100%;
+  position: absolute;
+  top: 2.15rem;
+  background-color: var(--bg-accent);
+
+  opacity: 0;
+  pointer-events: none;
+
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: all var(--transition);
+  -webkit-border-radius: 0 0 0.5rem 0.5rem;
+  -moz-border-radius: 0 0 0.5rem 0.5rem;
+  -ms-border-radius: 0 0 0.5rem 0.5rem;
+  -o-border-radius: 0 0 0.5rem 0.5rem;
+  -webkit-transition: all var(--transition);
+  -moz-transition: all var(--transition);
+  -ms-transition: all var(--transition);
+  -o-transition: all var(--transition);
+}
+
+.item {
+  box-sizing: border-box;
+  display: block;
+  padding: 1rem;
+  width: 100%;
+}
+
+.item:hover {
+  background-color: var(--bg-main);
+}
+
+.show {
+  transform: translateY(1rem);
+  opacity: 1;
+  pointer-events: all;
+  z-index: 99;
+  -webkit-transform: translateY(1rem);
+  -moz-transform: translateY(1rem);
+  -ms-transform: translateY(1rem);
+  -o-transform: translateY(1rem);
+}

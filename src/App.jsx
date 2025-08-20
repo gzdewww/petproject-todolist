@@ -1,6 +1,8 @@
 import SideBar from "./components/SideBar/SideBar.jsx";
 import List from "./components/List/List.jsx";
 import useTasks from "./hooks/useTasks.js";
+import styles from "./styles/App.module.css";
+import { useState } from "react";
 
 function App() {
   const {
@@ -15,6 +17,17 @@ function App() {
     toggleTask,
     editTask,
   } = useTasks();
+
+  const [filter, setFilter] = useState("all");
+
+  const filterTasks = (tasks) => {
+    return tasks.filter((task) => {
+      if (filter === "active") return !task.done;
+      if (filter === "completed") return task.done;
+      return true;
+    });
+  };
+
   return (
     <>
       <SideBar
@@ -25,20 +38,26 @@ function App() {
         removeList={removeList}
         editList={editList}
       />
-      <main className="content">
+      <main className={styles.content}>
         {lists.length > 0 ? (
           <List
-            items={lists.find((list) => list.id === activeList)?.todos || []}
+            items={
+              filterTasks(
+                lists.find((list) => list.id === activeList)?.todos
+              ) || []
+            }
             onAdd={(text) => addTask(activeList, text)}
             onDelete={(taskId) => removeTask(activeList, taskId)}
             onToggle={(taskId) => toggleTask(activeList, taskId)}
             onChange={(taskId, newText) =>
               editTask(activeList, taskId, newText)
             }
+            filter={filter}
+            setFilter={setFilter}
           />
         ) : (
-          <h1 className="empty-lists">
-            <span className="anim">🚀</span> ToDoList
+          <h1 className={styles.emptyLists}>
+            <span className={styles.anim}>🚀</span> ToDoList
           </h1>
         )}
       </main>
