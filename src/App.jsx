@@ -3,6 +3,7 @@ import List from "./components/List/List.jsx";
 import useTasks from "./hooks/useTasks.js";
 import styles from "./styles/App.module.css";
 import { useState } from "react";
+import CustomButton from "./UI/CustomButton/CustomButton.jsx";
 
 function App() {
   const {
@@ -18,7 +19,7 @@ function App() {
     editTask,
   } = useTasks();
 
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("");
 
   const filterTasks = (tasks) => {
     return tasks.filter((task) => {
@@ -39,7 +40,7 @@ function App() {
         editList={editList}
       />
       <main className={styles.content}>
-        {lists.length > 0 ? (
+        {lists.length > 0 && activeList ? (
           <List
             items={
               filterTasks(
@@ -56,9 +57,7 @@ function App() {
             setFilter={setFilter}
           />
         ) : (
-          <h1 className={styles.emptyLists}>
-            <span className={styles.anim}>🚀</span> ToDoList
-          </h1>
+          ""
         )}
       </main>
     </>

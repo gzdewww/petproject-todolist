@@ -7,6 +7,7 @@ export default function CustomInput({
   onChange,
   placeholder,
   error,
+  ...props
 }) {
   return (
     <input
@@ -15,9 +16,8 @@ export default function CustomInput({
       onChange={onChange}
       placeholder={error || placeholder}
       aria-invalid={Boolean(error)}
-      className={
-        `${styles.input} ${error ? styles.error : ""} ` + className
-      }
+      className={`${styles.input} ${error ? styles.error : ""} ${className}`}
+      {...props}
     />
   );
 }

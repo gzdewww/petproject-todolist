@@ -25,21 +25,18 @@ export default function useTasks() {
       title,
       todos: [],
     };
-    setLists([...lists, newList]);
+    setLists((prev) => [...prev, newList]);
     setActiveList(newList.id);
   };
 
   const removeList = (listId) => {
-    const updatedLists = lists.filter((list) => list.id !== listId);
-    setLists(updatedLists);
-    if (activeList === listId) {
-      setActiveList(updatedLists.length > 0 ? updatedLists[0].id : "");
-    }
+    setLists((prev) => prev.filter((list) => list.id !== listId));
+    setActiveList((prev) => (prev === listId ? "" : prev));
   };
 
   const editList = (listId, newTitle) => {
-    setLists(
-      lists.map((list) =>
+    setLists((prev) =>
+      prev.map((list) =>
         list.id === listId ? { ...list, title: newTitle } : list
       )
     );
@@ -47,16 +44,16 @@ export default function useTasks() {
 
   const addTask = (listId, text) => {
     const newTask = { id: nanoid(8), value: text, done: false };
-    setLists(
-      lists.map((list) =>
+    setLists((prev) =>
+      prev.map((list) =>
         list.id === listId ? { ...list, todos: [...list.todos, newTask] } : list
       )
     );
   };
 
   const removeTask = (listId, taskId) => {
-    setLists(
-      lists.map((list) =>
+    setLists((prev) =>
+      prev.map((list) =>
         list.id === listId
           ? { ...list, todos: list.todos.filter((task) => task.id !== taskId) }
           : list
@@ -65,8 +62,8 @@ export default function useTasks() {
   };
 
   const toggleTask = (listId, taskId) => {
-    setLists(
-      lists.map((list) =>
+    setLists((prev) =>
+      prev.map((list) =>
         list.id === listId
           ? {
               ...list,
@@ -80,8 +77,8 @@ export default function useTasks() {
   };
 
   const editTask = (listId, taskId, newText) => {
-    setLists(
-      lists.map((list) =>
+    setLists((prev) =>
+      prev.map((list) =>
         list.id === listId
           ? {
               ...list,

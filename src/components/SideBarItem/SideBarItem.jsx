@@ -5,26 +5,35 @@ import { BsXLg } from "react-icons/bs";
 export default function SideBarItem({
   icon,
   value,
-  deletable,
+  custom,
   active,
   onClick,
   onRemove,
   onChange,
 }) {
   return (
-    <div className={styles.item} onClick={onClick}>
+    <div
+      className={`${styles.item} ${active ? styles.active : ""}`}
+      onClick={onClick}
+    >
       {icon}
-      {deletable ? (
+      {custom ? (
         <>
           <CustomInput
             className={styles.itemTitle}
-            disabled={active}
             value={value}
             onChange={(event) => {
               onChange(event.target.value);
             }}
+            readOnly={!active}
           />
-          <BsXLg className={styles.delete} onClick={onRemove} />
+          <BsXLg
+            className={styles.delete}
+            onClick={(event) => {
+              event.stopPropagation();
+              onRemove();
+            }}
+          />
         </>
       ) : (
         <p className={styles.itemTitle}>{value}</p>

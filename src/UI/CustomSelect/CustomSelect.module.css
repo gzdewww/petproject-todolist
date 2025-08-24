@@ -9,17 +9,16 @@
   align-items: center;
   background-color: var(--bg-accent);
   padding: 1rem;
-
   border-radius: 0.5rem;
-  transition: all var(--transition);
+  transition: border-radius var(--transition);
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
-  -webkit-transition: all var(--transition);
-  -moz-transition: all var(--transition);
-  -ms-transition: all var(--transition);
-  -o-transition: all var(--transition);
+  -webkit-transition: border-radius var(--transition);
+  -moz-transition: border-radius var(--transition);
+  -ms-transition: border-radius var(--transition);
+  -o-transition: border-radius var(--transition);
 }
 
 .button > svg {
@@ -30,7 +29,7 @@
   -o-transition: transform var(--transition);
 }
 
-.selectExpanded {
+.buttonExpanded {
   border-radius: 0.5rem 0.5rem 0 0;
   -webkit-border-radius: 0.5rem 0.5rem 0 0;
   -moz-border-radius: 0.5rem 0.5rem 0 0;
@@ -38,7 +37,7 @@
   -o-border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.selectExpanded > svg {
+.buttonExpanded > svg {
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -47,44 +46,51 @@
 }
 
 .options {
+  margin: 0;
+  padding: 0;
   width: 100%;
   position: absolute;
-  top: 2.15rem;
+  transform: translateY(-1rem);
+  top: 3.15rem;
   background-color: var(--bg-accent);
-
   opacity: 0;
   pointer-events: none;
-
   border-radius: 0 0 0.5rem 0.5rem;
-  transition: all var(--transition);
+  transition: opacity var(--transition), transform var(--transition);
   -webkit-border-radius: 0 0 0.5rem 0.5rem;
   -moz-border-radius: 0 0 0.5rem 0.5rem;
   -ms-border-radius: 0 0 0.5rem 0.5rem;
   -o-border-radius: 0 0 0.5rem 0.5rem;
-  -webkit-transition: all var(--transition);
-  -moz-transition: all var(--transition);
-  -ms-transition: all var(--transition);
-  -o-transition: all var(--transition);
+  -webkit-transition: opacity var(--transition), transform var(--transition);
+  -moz-transition: opacity var(--transition), transform var(--transition);
+  -ms-transition: opacity var(--transition), transform var(--transition);
+  -o-transition: opacity var(--transition), transform var(--transition);
+  -webkit-transform: translateY(-1rem);
+  -moz-transform: translateY(-1rem);
+  -ms-transform: translateY(-1rem);
+  -o-transform: translateY(-1rem);
+}
+
+.optionsShow {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+  z-index: 99;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
 }
 
 .item {
+  cursor: pointer;
   box-sizing: border-box;
   display: block;
   padding: 1rem;
   width: 100%;
 }
 
-.item:hover {
+.item:hover,
+.highlighted {
   background-color: var(--bg-main);
-}
-
-.show {
-  transform: translateY(1rem);
-  opacity: 1;
-  pointer-events: all;
-  z-index: 99;
-  -webkit-transform: translateY(1rem);
-  -moz-transform: translateY(1rem);
-  -ms-transform: translateY(1rem);
-  -o-transform: translateY(1rem);
 }

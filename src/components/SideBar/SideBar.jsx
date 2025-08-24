@@ -50,25 +50,22 @@ export default function SideBar({
             icon={<BsPersonCircle className={styles.icon} />}
             value={"Мои списки"}
           />
-          <div className={styles.userLists}>
-            {lists.map((list) => (
-              <SideBarItem
-                key={list.id}
-                icon={<BsJournalCheck className={styles.icon} />}
-                value={list.title}
-                deletable
-                active={list.id === activeList}
-                onRemove={() => removeList(list.id)}
-                onClick={() => {
-                  setActiveList(list.id);
-                  console.log(activeList);
-                }}
-                onChange={(newTitle) => {
-                  editList(list.id, newTitle);
-                }}
-              />
-            ))}
-          </div>
+          {lists.map((list) => (
+            <SideBarItem
+              key={list.id}
+              icon={<BsJournalCheck className={styles.icon} />}
+              value={list.title}
+              custom
+              active={list.id === activeList}
+              onRemove={() => removeList(list.id)}
+              onClick={() => {
+                setActiveList(list.id);
+              }}
+              onChange={(newTitle) => {
+                editList(list.id, newTitle);
+              }}
+            />
+          ))}
           <SideBarItem
             icon={<BsPlusSquare className={styles.icon} />}
             value={"Добавить"}

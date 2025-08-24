@@ -1,6 +1,7 @@
 .input {
   font-weight: inherit;
   color: inherit;
+  cursor: text;
 
   box-sizing: border-box;
   outline: none;
@@ -17,6 +18,15 @@
 
 .input:hover {
   border-bottom: 2px solid var(--bg-accent);
+}
+
+.input:read-only {
+  border: solid 2px transparent;
+  cursor: default;
+}
+
+.highlighted {
+  background-color: var(--bg-main);
 }
 
 .error {
