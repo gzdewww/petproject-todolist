@@ -11,6 +11,7 @@
 .sidebarHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: var(--bg-main);
 }
 
@@ -30,6 +31,11 @@
   -webkit-filter: drop-shadow(var(--glow-main));
 }
 
+.userName {
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+
 .sidebarContent {
   display: flex;
   flex-direction: column;
@@ -40,10 +46,6 @@
 
 .icon {
   font-size: 1.5rem;
-}
-
-.userLists {
-  margin-left: 1rem;
 }
 
 @media (max-width: 720px) {

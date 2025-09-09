@@ -1,5 +1,6 @@
 .button {
-  font-weight:600;
+  font-weight: 600;
+  display: flex;
   color: inherit;
   background-color: var(--main-bg-color);
   border: none;

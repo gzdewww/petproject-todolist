@@ -1,6 +1,7 @@
 import style from "./ListItem.module.css";
 import { BsFilter, BsXLg } from "react-icons/bs";
 import CustomInput from "../../UI/CustomInput/CustomInput";
+import CustomButton from "../../UI/CustomButton/CustomButton";
 
 export default function ListItem({
   value,
@@ -27,11 +28,13 @@ export default function ListItem({
           onChange(event.target.value);
         }}
       ></CustomInput>
-      <BsXLg
-        aria-label="Удалить задачу"
+      <CustomButton
         className={style.deleteButton}
         onClick={onDelete}
-      />
+        aria-label="Удалить задачу"
+      >
+        <BsXLg />
+      </CustomButton>
     </li>
   );
 }

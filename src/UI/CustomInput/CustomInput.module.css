@@ -16,13 +16,13 @@
   -o-transition: border var(--transition), color var(--transition);
 }
 
-.input:hover {
+.input:focus:hover {
   border-bottom: 2px solid var(--bg-accent);
 }
 
 .input:read-only {
   border: solid 2px transparent;
-  cursor: default;
+  cursor: inherit;
 }
 
 .highlighted {

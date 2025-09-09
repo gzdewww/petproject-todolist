@@ -12,6 +12,7 @@ import {
   BsList,
 } from "react-icons/bs";
 import SideBarItem from "../SideBarItem/SideBarItem";
+import CustomButton from "../../UI/CustomButton/CustomButton";
 
 export default function SideBar({
   lists,
@@ -27,29 +28,17 @@ export default function SideBar({
     <>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
-          <BsPersonCircle className={styles.iconHeader} />
-          <BsLayoutSidebar
-            className={styles.iconHeader}
-            onClick={() => setHidden(!hidden)}
-          />
+          <CustomButton>
+            <BsPersonCircle />
+            <span className={styles.userName}>UserName</span>
+          </CustomButton>
+          <CustomButton onClick={() => setHidden((prev) => !prev)}>
+            <BsLayoutSidebar />
+          </CustomButton>
         </div>
         <div
-          className={
-            styles.sidebarContent + " " + (hidden ? styles.hidden : "")
-          }
+          className={`${styles.sidebarContent} ${hidden ? styles.hidden : ""}`}
         >
-          <SideBarItem
-            icon={<BsCalendar2Date className={styles.icon} />}
-            value={"Сегодня"}
-          />
-          <SideBarItem
-            icon={<BsCalendarMonth className={styles.icon} />}
-            value={"Ближайшие"}
-          />
-          <SideBarItem
-            icon={<BsPersonCircle className={styles.icon} />}
-            value={"Мои списки"}
-          />
           {lists.map((list) => (
             <SideBarItem
               key={list.id}

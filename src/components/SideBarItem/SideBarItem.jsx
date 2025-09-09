@@ -1,3 +1,5 @@
+import { useState } from "react";
+import CustomButton from "../../UI/CustomButton/CustomButton";
 import CustomInput from "../../UI/CustomInput/CustomInput";
 import styles from "./SideBarItem.module.css";
 import { BsXLg } from "react-icons/bs";
@@ -11,33 +13,63 @@ export default function SideBarItem({
   onRemove,
   onChange,
 }) {
+  const [isEditing, setIsEditing] = useState(false);
+
   return (
-    <div
+    <CustomButton
       className={`${styles.item} ${active ? styles.active : ""}`}
       onClick={onClick}
     >
       {icon}
-      {custom ? (
-        <>
-          <CustomInput
-            className={styles.itemTitle}
-            value={value}
-            onChange={(event) => {
-              onChange(event.target.value);
-            }}
-            readOnly={!active}
-          />
-          <BsXLg
-            className={styles.delete}
-            onClick={(event) => {
-              event.stopPropagation();
-              onRemove();
-            }}
-          />
-        </>
+      {isEditing ? (
+        <CustomInput
+          className={styles.itemTitle}
+          value={value}
+          onChange={(event) => {
+            onChange(event.target.value);
+          }}
+        ></CustomInput>
       ) : (
-        <p className={styles.itemTitle}>{value}</p>
+        <span className={styles.itemTitle}>{value}</span>
       )}
-    </div>
+      {custom ? (
+        <BsXLg
+          className={styles.delete}
+          onClick={(event) => {
+            event.stopPropagation();
+            onRemove();
+          }}
+        />
+      ) : (
+        ""
+      )}
+    </CustomButton>
   );
 }
+
+// {icon}
+// {custom ? (
+//   <>
+//     <CustomInput
+//       className={styles.itemTitle}
+//       value={value}
+//       onChange={(event) => {
+//         onChange(event.target.value);
+//       }}
+//       readOnly={!editing}
+//       onClick={(e) => {
+//         e.target.blur();
+//         e.preventDefault();
+//       }}
+//     />
+//     <BsXLg
+//       className={styles.delete}
+//       onClick={(event) => {
+//         event.stopPropagation();
+//         onRemove();
+//       }}
+//     />
+//   </>
+// ) : (
+//   <span className={styles.itemTitle}>{value}</span>
+// )}

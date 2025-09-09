@@ -113,6 +113,7 @@
 
 .deleteButton {
   cursor: pointer;
+  padding: 0;
 }
 
 .filterButton {
@@ -132,5 +133,10 @@
 
   .deleteButton {
     opacity: 0;
+  }
+
+  .deleteButton:focus > svg {
+    filter: drop-shadow(var(--glow-main));
+    -webkit-filter: drop-shadow(var(--glow-main));
   }
 }

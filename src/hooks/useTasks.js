@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
+
+// structure:
+// task {id, value, done}
+// list {id, title, todos}
+
 export default function useTasks() {
-  // Load initial lists from localStorage or set default
+  // Load lists and active list from localStorage or set default
   const [lists, setLists] = useState(
     JSON.parse(localStorage.getItem("lists")) || []
   );
@@ -11,6 +16,7 @@ export default function useTasks() {
     JSON.parse(localStorage.getItem("activeList")) || ""
   );
 
+  //write in localstorage after state change
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(lists));
   }, [lists]);
@@ -19,6 +25,7 @@ export default function useTasks() {
     localStorage.setItem("activeList", JSON.stringify(activeList));
   }, [activeList]);
 
+  //lists CRUD
   const addList = (title) => {
     const newList = {
       id: nanoid(16),
@@ -30,8 +37,18 @@ export default function useTasks() {
   };
 
   const removeList = (listId) => {
-    setLists((prev) => prev.filter((list) => list.id !== listId));
-    setActiveList((prev) => (prev === listId ? "" : prev));
+    setLists((prev) => {
+      const updated = prev.filter((list) => list.id !== listId);
+
+      console.log(prev.findIndex((item) => item.id === listId));
+      setActiveList(
+        updated.length > 0
+          ? prev[prev.findIndex((item) => item.id === listId) - 1].id
+          : ""
+      );
+
+      return updated;
+    });
   };
 
   const editList = (listId, newTitle) => {
@@ -42,6 +59,7 @@ export default function useTasks() {
     );
   };
 
+  //tasks CRUD
   const addTask = (listId, text) => {
     const newTask = { id: nanoid(8), value: text, done: false };
     setLists((prev) =>
